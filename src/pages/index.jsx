@@ -1,11 +1,11 @@
-import { Head } from "minista"
+export const metadata = {
+  title: "Home",
+}
 
 export default function () {
   return (
     <>
-      <Head htmlAttributes={{ lang: "en" }}>
-        <title>av.stream-vibe</title>
-      </Head>
+      <h1>Home</h1>
     </>
   )
 }
