@@ -1,4 +1,4 @@
-import "@/styles/index.js"
+import "@/styles"
 
 import { Head } from "minista"
 import { Header } from "@/layouts/Header"

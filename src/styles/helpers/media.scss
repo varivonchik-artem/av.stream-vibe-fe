@@ -1,14 +1,14 @@
 @use "sass:map";
 
 $breakpoints: (
-        "mobile-xs": 320px,
-        "mobile-s": 480px,
-        "mobile": 600px,
-        "tablet": 768px,
-        "tablet-landscape": 1024px,
-        "laptop": 1280px,
-        "desktop": 1440px,
-        "desktop-wide": 1920px,
+  "mobile-xs": 320px,
+  "mobile-s": 480px,
+  "mobile": 600px,
+  "tablet": 768px,
+  "tablet-landscape": 1024px,
+  "laptop": 1280px,
+  "desktop": 1440px,
+  "desktop-wide": 1920px,
 );
 
 @mixin breakpoint-up($key) {
