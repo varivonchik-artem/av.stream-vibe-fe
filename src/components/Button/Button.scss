@@ -1,0 +1,56 @@
+.button {
+  @include flex-center(true);
+
+  column-gap: 4px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  padding: fluid-to-laptop(18, 14) fluid-to-laptop(24, 20);
+
+  color: var(--color-white);
+  background-color: var(--color-red-45);
+
+  border: none;
+  border-radius: var(--border-radius-8);
+
+  user-select: none;
+
+  &:active {
+    scale: 1.01;
+  }
+
+  &:disabled {
+    color: var(--color-gray-60);
+    background-color: var(--color-black-06);
+
+    pointer-events: none;
+  }
+
+  &:has(.button__icon:only-child) {
+    padding: 0;
+  }
+
+  &_transparent {
+    background-color: transparent;
+
+    &:has(.button__icon:only-child) {
+      @include square(44px);
+
+
+      .button__icon {
+        --iconSize: #{fluid-to-laptop(34, 24)}
+      }
+    }
+  }
+
+  @include hover {
+    color: var(--color-white);
+    background-color: var(--color-red-60);
+  }
+
+  @include breakpoint-down("laptop") {
+    border-radius: var(--border-radius-6);
+  }
+}
