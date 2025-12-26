@@ -31,12 +31,35 @@
     column-gap: 16px;
   }
 
+  &__overlay-menu-dialog {
+    position: fixed;
+    inset: 0;
+
+    flex-direction: column-reverse;
+    justify-content: start;
+
+    row-gap: 16px;
+
+    height: 100%;
+    width: 100%;
+
+    padding: var(--container-padding-x);
+
+    border: none;
+
+    background-color: var(--color-black-20);
+
+    &[open] {
+      display: flex;
+
+      @include breakpoint-up("tablet-landscape") {
+        display: contents;
+      }
+    }
+  }
+
   &__menu {
-    padding: fluid-to-laptop(10, 8);
 
-    background-color: var(--color-black-06);
-
-    outline: var(--border-width-4) solid var(--color-black-12);
 
     border-radius: var(--border-radius-12);
 
@@ -44,11 +67,38 @@
       border-radius: var(--border-radius-10);
     }
 
+    @include breakpoint-up("tablet-landscape") {
+      padding: fluid-to-laptop(10, 8);
+
+      background-color: var(--color-black-06);
+
+      outline: var(--border-width-4) solid var(--color-black-12);
+    }
+
+    @include breakpoint-down("tablet-landscape") {
+      display: flex;
+      justify-content: center;
+
+      height: 100%;
+
+      border-radius: 0;
+
+      overflow-y: auto;
+    }
+
     &-list {
       display: flex;
       align-items: center;
 
       column-gap: 6px;
+
+      @include breakpoint-down("tablet-landscape") {
+        flex-direction: column;
+
+        row-gap: 16px;
+
+        margin-block: auto;
+      }
     }
 
     &-link {
@@ -72,9 +122,11 @@
 
         pointer-events: none;
       }
+
+      @include breakpoint-down("tablet-landscape") {
+        font-size: 20px;
+      }
     }
-
-
   }
 
   &__actions {
@@ -82,5 +134,9 @@
     align-items: center;
 
     column-gap: 10px;
+  }
+
+  &__burger-button {
+    position: relative;
   }
 }
