@@ -2,6 +2,7 @@ import "./Header.scss"
 import { Logo } from "@/components/Logo/index.js"
 import clx from "classnames"
 import { Button } from "@/components/Button/index.js"
+import { BurgerButton } from "@/components/BurgerButton/index.js"
 
 export const Header = (props) => {
   const { url } = props
@@ -61,6 +62,7 @@ export const Header = (props) => {
             mode="transparent"
           />
         </div>
+        <BurgerButton />
       </div>
     </header>
   )
