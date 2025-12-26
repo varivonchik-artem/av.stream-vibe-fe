@@ -13,12 +13,13 @@ export const Button = (props) => {
     isLabelHidden = false,
     iconName,
     iconPosition = "before",
+    hasFillIcon,
   } = props
 
   const isLink = href !== undefined
   const Component = isLink ? "a" : "button"
   const iconComponent = iconName && (
-    <Icon className="button__icon" name={iconName} />
+    <Icon className="button__icon" name={iconName} hasFill={hasFillIcon} />
   )
 
   const linkProps = { href, target }
