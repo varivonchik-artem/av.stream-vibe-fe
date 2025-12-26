@@ -27,10 +27,13 @@ export const Header = (props) => {
   ]
 
   return (
-    <header className="header">
+    <header className="header" data-js-overlay-menu="">
       <div className="header__inner container">
         <Logo className="header__logo" loading="eager" />
-        <dialog className="header__overlay-menu-dialog" open>
+        <dialog
+          className="header__overlay-menu-dialog"
+          data-js-overlay-menu-dialog=""
+        >
           <nav className="header__menu">
             <ul className="header__menu-list">
               {menuItems.map(({ label, href }, index) => (
@@ -64,7 +67,12 @@ export const Header = (props) => {
             />
           </div>
         </dialog>
-        <BurgerButton className="header__burger-button" />
+        <BurgerButton
+          className="header__burger-button hidden-tablet-landscape-up"
+          extraAttrs={{
+            "data-js-overlay-menu-burger-button": "",
+          }}
+        />
       </div>
     </header>
   )

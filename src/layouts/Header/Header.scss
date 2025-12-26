@@ -49,13 +49,36 @@
 
     background-color: var(--color-black-20);
 
+    transition-duration: var(--transition-duration-02);
+    transition-behavior: allow-discrete;
+
+
+    @mixin starting-styles {
+      opacity: 0;
+      translate: 50%;
+    }
+
     &[open] {
       display: flex;
+
+      @starting-style {
+        @include starting-styles;
+      }
+      @include breakpoint-up("tablet-landscape") {
+        display: contents;
+      }
+
+    }
+
+    &:not([open]) {
+      @include starting-styles;
 
       @include breakpoint-up("tablet-landscape") {
         display: contents;
       }
     }
+
+
   }
 
   &__menu {
