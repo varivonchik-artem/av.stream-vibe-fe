@@ -18,7 +18,16 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
           },
         },
       },
-      "sass-loader",
+      {
+        loader: "sass-loader",
+        options: {
+          additionalData: `
+            @use "@app/styles/helpers/functions" as *;
+            @use "app/styles/helpers/mixins" as *;
+            @use "app/styles/helpers/media" as *;
+            `,
+        },
+      },
     ],
   };
 
