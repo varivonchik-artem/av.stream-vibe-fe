@@ -1,5 +1,6 @@
 import React from "react";
 import clx from "classnames";
+import "./Icon.scss";
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;

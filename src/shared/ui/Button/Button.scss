@@ -1,0 +1,54 @@
+.button {
+  @include flex-center(true);
+
+  font-weight: 600;
+
+  padding: fluid-to-laptop(18, 14) fluid-to-laptop(24, 20);
+  column-gap: 4px;
+
+  color: var(--color-white);
+  background-color: var(--color-red-45);
+
+  border: none;
+  border-radius: var(--border-radius-8);
+
+  user-select: none;
+
+  cursor: pointer;
+
+  &:has(.button__icon:only-child) {
+    padding: 0;
+  }
+
+  &_transparent {
+    background-color: transparent;
+
+    &:has(.button__icon:only-child) {
+      @include square(44px);
+
+      .button__icon {
+        --iconSize: #{fluid-to-laptop(34, 24)};
+      }
+    }
+  }
+
+  &:active {
+    scale: 1.01;
+  }
+
+  &:disabled {
+    color: var(--color-gray-60);
+    background-color: var(--color-black-06);
+
+    pointer-events: none;
+  }
+
+  @include breakpoint-down("laptop") {
+    border-radius: var(--border-radius-6);
+  }
+
+  @include hover {
+    color: var(--color-white);
+    background-color: var(--color-red-60);
+  }
+}
