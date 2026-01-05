@@ -16,11 +16,28 @@ interface LogoProps {
 }
 
 export const Logo = (props: LogoProps) => {
-  const { linkProps: { className, ...linkProps } = {}, imageProps: { loading = "lazy", ...imageProps } = {} } = props;
+  const {
+    linkProps: { className, ...linkProps } = {},
+    imageProps: { loading = "lazy", ...imageProps } = {},
+  } = props;
 
   return (
-    <Link className={clx(className, "logo")} to={getRouteMain()} title="Home" aria-label="Home" {...linkProps}>
-      <img className="logo__image" src={logoPath} alt="logo" height={60} width={60} loading={loading} {...imageProps} />
+    <Link
+      className={clx(className, "logo")}
+      to={getRouteMain()}
+      title="Home"
+      aria-label="Home"
+      {...linkProps}
+    >
+      <img
+        className="logo__image"
+        src={logoPath}
+        alt="logo"
+        height={60}
+        width={60}
+        loading={loading}
+        {...imageProps}
+      />
     </Link>
   );
 };
