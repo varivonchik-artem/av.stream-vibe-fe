@@ -1,0 +1,1 @@
+export { getRouteMain } from "./router";

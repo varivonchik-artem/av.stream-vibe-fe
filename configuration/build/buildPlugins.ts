@@ -13,7 +13,10 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
       favicon: paths.favicon,
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "public", to: "", globOptions: { ignore: ["**/index.html"] } }],
+      patterns: [
+        { from: "public", to: "", globOptions: { ignore: ["**/index.html"] } },
+        { from: "shared/assets", to: "assets" },
+      ],
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
