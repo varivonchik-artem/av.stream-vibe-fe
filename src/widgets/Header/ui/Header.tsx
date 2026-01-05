@@ -1,4 +1,5 @@
 import { getRouteMain } from "@shared/routes";
+import { BurgerButton } from "@shared/ui/BurgerButton";
 import { Button } from "@shared/ui/Button";
 import { Logo } from "@shared/ui/Logo";
 import clx from "classnames";
@@ -51,10 +52,11 @@ export const Header = () => {
             isLabelVisible={false}
             icon={NotificationIcon}
             iconPosition="before"
-            title="Search"
-            aria-label="Search"
+            title="Notifications"
+            aria-label="Notifications"
             mode="transparent"
           />
+          <BurgerButton />
         </div>
       </div>
     </header>
