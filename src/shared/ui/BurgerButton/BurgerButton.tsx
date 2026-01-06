@@ -7,7 +7,7 @@ interface BurgerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
 }
 
 export const BurgerButton = (props: BurgerButtonProps) => {
-  const { className } = props;
+  const { className, ...rest } = props;
 
   return (
     <button
@@ -15,6 +15,7 @@ export const BurgerButton = (props: BurgerButtonProps) => {
       type="button"
       title="Open Menu"
       aria-label="Open Menu"
+      {...rest}
     >
       <svg className="burger-button__svg" width="30" height="30" viewBox="0 0 100 100">
         <path

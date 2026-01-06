@@ -13,3 +13,9 @@
     display: none !important;
   }
 }
+
+.hidden-tablet-landscape-down {
+  @include breakpoint-down("tablet-landscape") {
+    display: none !important;
+  }
+}

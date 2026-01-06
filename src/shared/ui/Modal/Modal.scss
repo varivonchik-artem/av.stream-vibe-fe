@@ -1,0 +1,47 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+
+  &_opened {
+    pointer-events: auto;
+    opacity: 1;
+
+    z-index: 102;
+
+    @include breakpoint-up("tablet-landscape") {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background: black;
+  }
+
+  &__close-button-wrapper {
+    //display: flex;
+    //justify-content: end;
+    //padding-block: fluid(22, 14);
+    padding-inline: var(--container-padding-x);
+  }
+
+  &__body {
+    height: 100%;
+    border: 1px solid black;
+  }
+}
+
+.header-form-list {
+  @include flex-center(true);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  row-gap: 30px;
+}

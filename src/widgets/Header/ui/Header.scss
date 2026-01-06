@@ -81,4 +81,9 @@
 
     column-gap: 10px;
   }
+
+  &__burger-button {
+    position: relative;
+    z-index: 104;
+  }
 }

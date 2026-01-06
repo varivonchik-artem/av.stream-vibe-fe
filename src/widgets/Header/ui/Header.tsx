@@ -1,7 +1,11 @@
+import React from "react";
+
 import { getRouteMain } from "@shared/routes";
 import { BurgerButton } from "@shared/ui/BurgerButton";
 import { Button } from "@shared/ui/Button";
 import { Logo } from "@shared/ui/Logo";
+import { Modal } from "@shared/ui/Modal";
+
 import clx from "classnames";
 import { NavLink } from "react-router-dom";
 import NotificationIcon from "@/shared/assets/icons/notification.svg";
@@ -9,19 +13,33 @@ import SearchIcon from "@/shared/assets/icons/search.svg";
 
 import "./Header.scss";
 
+export const menuItems = [
+  {
+    label: "Home",
+    href: getRouteMain(),
+  },
+  {
+    label: "Movies & Shows",
+    href: "/movies",
+  },
+  {
+    label: "Support",
+    href: "/support",
+  },
+  {
+    label: "Subscriptions",
+    href: "/subscriptions",
+  },
+];
+
 export const Header = () => {
-  const menuItems = [
-    {
-      label: "Home",
-      href: getRouteMain(),
-    },
-  ];
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <header className="header">
       <div className="header__inner container">
         <Logo linkProps={{ className: "header__logo" }} imageProps={{ loading: "eager" }} />
-        <nav className="header__menu">
+        <nav className="header__menu hidden-tablet-landscape-down">
           <ul className="header__menu-list">
             {menuItems.map(({ label, href }, index) => (
               <li className="header__menu-item" key={index}>
@@ -37,7 +55,7 @@ export const Header = () => {
             ))}
           </ul>
         </nav>
-        <div className="header__actions">
+        <div className="header__actions hidden-tablet-landscape-down">
           <Button
             label="Search"
             isLabelVisible={false}
@@ -56,8 +74,30 @@ export const Header = () => {
             aria-label="Notifications"
             mode="transparent"
           />
-          <BurgerButton />
         </div>
+
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <ul className="header-form-list">
+            {menuItems.map(({ label, href }, index) => (
+              <li className="header-form__item" key={index}>
+                <NavLink
+                  className={({ isActive }) =>
+                    clx("header__form-link", { "header-form__link_active": isActive })
+                  }
+                  to={href}
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </Modal>
+        <BurgerButton
+          className={clx("header__burger-button hidden-tablet-landscape-up", {
+            ["burger-button_active"]: isOpen,
+          })}
+          onClick={() => setIsOpen((prev) => !prev)}
+        />
       </div>
     </header>
   );
