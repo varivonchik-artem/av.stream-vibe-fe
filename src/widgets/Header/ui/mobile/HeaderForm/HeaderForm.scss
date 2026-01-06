@@ -1,0 +1,31 @@
+.header-form-list {
+  @include flex-center(true);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  row-gap: 30px;
+
+  &__link {
+    color: var(--color-gray-75);
+
+    border-radius: var(--border-radius-8);
+
+    padding: fluid-to-laptop(14, 12) fluid-to-laptop(24, 20);
+
+    @include hover {
+      color: var(--color-white);
+      background-color: var(--color-red-60);
+    }
+
+    &_active {
+      font-weight: 500;
+
+      color: var(--color-white);
+      background-color: var(--color-black-10);
+
+      pointer-events: none;
+    }
+  }
+}

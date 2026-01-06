@@ -4,8 +4,7 @@ import { getRouteMain } from "@shared/routes";
 import { BurgerButton } from "@shared/ui/BurgerButton";
 import { Button } from "@shared/ui/Button";
 import { Logo } from "@shared/ui/Logo";
-import { Modal } from "@shared/ui/Modal";
-
+import { HeaderFormModal } from "@widgets/Header/ui/mobile/HeaderFormModal";
 import clx from "classnames";
 import { NavLink } from "react-router-dom";
 import NotificationIcon from "@/shared/assets/icons/notification.svg";
@@ -33,7 +32,11 @@ export const menuItems = [
 ];
 
 export const Header = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpenModal, setIsOpenModal] = React.useState(false);
+
+  const toggleModal = () => {
+    setIsOpenModal((prev) => !prev);
+  };
 
   return (
     <header className="header">
@@ -76,27 +79,12 @@ export const Header = () => {
           />
         </div>
 
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <ul className="header-form-list">
-            {menuItems.map(({ label, href }, index) => (
-              <li className="header-form__item" key={index}>
-                <NavLink
-                  className={({ isActive }) =>
-                    clx("header__form-link", { "header-form__link_active": isActive })
-                  }
-                  to={href}
-                >
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </Modal>
+        <HeaderFormModal isOpen={isOpenModal} onClose={toggleModal} />
         <BurgerButton
           className={clx("header__burger-button hidden-tablet-landscape-up", {
-            ["burger-button_active"]: isOpen,
+            ["burger-button_active"]: isOpenModal,
           })}
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={toggleModal}
         />
       </div>
     </header>
