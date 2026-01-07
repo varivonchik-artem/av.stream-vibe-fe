@@ -1,0 +1,47 @@
+.link {
+  cursor: pointer;
+
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+
+  &:active {
+    scale: 1.01;
+  }
+
+  &:disabled {
+    color: var(--color-gray-60);
+    background-color: var(--color-black-06);
+
+    pointer-events: none;
+  }
+
+  &:has(.link__icon:only-child) {
+    @include flex-center(true);
+
+    @include square(fluid-to-laptop(56, 44));
+
+    @include hover {
+      color: var(--color-white);
+      background: red;
+    }
+  }
+
+  &_black-10 {
+    color: var(--color-white);
+    background-color: var(--color-black-10);
+
+    border: var(--border);
+    border-radius: var(--border-radius-8);
+
+    @include breakpoint-down("laptop") {
+      border-radius: var(--border-radius-6);
+    }
+  }
+
+  @include hover {
+    color: var(--color-red-45);
+  }
+}

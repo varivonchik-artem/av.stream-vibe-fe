@@ -1,6 +1,6 @@
 import React from "react";
+import { AppLink } from "@shared/ui/AppLink";
 
-import { Button } from "@shared/ui/Button";
 
 import clx from "classnames";
 import "./Socials.scss";
@@ -25,11 +25,12 @@ export const Socials = (props: SocialsProps) => {
       <ul className="soc1als__list">
         {links.map(({ label, iconName }, index) => (
           <li className="soc1als__item" key={index}>
-            <Button
+            <AppLink
               className="soc1als_link"
               mode="black-10"
               label={label}
               isLabelVisible={false}
+              to="/"
               icon={iconName}
             />
           </li>

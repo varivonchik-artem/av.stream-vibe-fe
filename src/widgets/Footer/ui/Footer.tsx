@@ -1,4 +1,5 @@
 import "./Footer.scss";
+import { AppLink } from "@shared/ui/AppLink";
 import { Socials } from "@shared/ui/Socials";
 
 import FacebookIcon from "@/shared/assets/icons/facebook.svg";
@@ -54,16 +55,12 @@ export const Footer = () => {
         <nav className="footer__menu">
           {menuItems.map(({ title, links, socialLinks }, index) => (
             <div className="footer__menu-column" key={index}>
-              <a className="footer__menu-title h6" href="/">
-                {title}
-              </a>
+              <AppLink className="footer__menu-title h6" to="/" label={title} />
               {links?.length > 0 && (
                 <ul className="footer__menu-list">
                   {links.map((link) => (
                     <li className="footer__menu-item" key={index}>
-                      <a className="footer__menu-link" href="/">
-                        {link}
-                      </a>
+                      <AppLink className="footer__menu-link" to="/" label={link} />
                     </li>
                   ))}
                 </ul>
@@ -80,9 +77,7 @@ export const Footer = () => {
           </p>
           <div className="footer__extra-links">
             {extraLinks.map((link, index) => (
-              <a className="footer__extra-link" href="/" key={index}>
-                {link}
-              </a>
+              <AppLink className="footer__extra-link" to="/" label={link} key={index} />
             ))}
           </div>
         </div>

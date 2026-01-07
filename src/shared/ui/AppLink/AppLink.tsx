@@ -1,12 +1,14 @@
 import React from "react";
 import { Icon } from "@shared/ui/Icon";
+
 import clx from "classnames";
-import "./Button.scss";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { Link, LinkProps } from "react-router-dom";
+
+import "./AppLink.scss";
+
+interface AppLinkProps extends LinkProps {
   className?: string;
-
-  type?: "button" | "submit" | "reset";
 
   label?: string;
   isLabelVisible?: boolean;
@@ -17,10 +19,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: string;
 }
 
-export const Button = (props: ButtonProps) => {
+export const AppLink = (props: AppLinkProps) => {
   const {
     className,
-    type = "button",
+    to,
     label,
     isLabelVisible = "true",
     icon,
@@ -29,21 +31,17 @@ export const Button = (props: ButtonProps) => {
     ...rest
   } = props;
 
-  const iconNode = icon ? <Icon className="button__icon" Svg={icon} /> : undefined;
+  const iconNode = icon ? <Icon className="link__icon" Svg={icon} /> : undefined;
 
   return (
     <>
-      <button
-        className={clx(className, "button", { [`button_${mode}`]: mode })}
-        type={type}
-        {...rest}
-      >
+      <Link className={clx(className, "link", { [`link_${mode}`]: mode })} to={to} {...rest}>
         {iconPosition === "before" && iconNode}
 
-        {isLabelVisible && <span className="button__label">{label}</span>}
+        {isLabelVisible && <span className="link__label">{label}</span>}
 
         {iconPosition === "after" && iconNode}
-      </button>
+      </Link>
     </>
   );
 };
