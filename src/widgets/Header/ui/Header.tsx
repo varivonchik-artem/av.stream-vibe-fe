@@ -38,8 +38,10 @@ export const Header = () => {
     setIsOpenModal((prev) => !prev);
   };
 
+  const isMainPage = location.pathname === getRouteMain();
+
   return (
-    <header className="header">
+    <header className={clx("header", { ["header_fixed"]: isMainPage })}>
       <div className="header__inner container">
         <Logo linkProps={{ className: "header__logo" }} imageProps={{ loading: "eager" }} />
         <nav className="header__menu hidden-tablet-landscape-down">

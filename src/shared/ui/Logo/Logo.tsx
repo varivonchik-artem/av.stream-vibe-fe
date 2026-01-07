@@ -4,7 +4,7 @@ import { getRouteMain } from "@shared/routes/router";
 
 import clx from "classnames";
 import { Link, LinkProps } from "react-router-dom";
-import logoPath from "@/shared/assets/images/logo.png";
+import logoIcon from "@/shared/assets/icons/logo.svg?url";
 
 interface LogoProps {
   linkProps?: Omit<LinkProps, "to"> & {
@@ -31,10 +31,10 @@ export const Logo = (props: LogoProps) => {
     >
       <img
         className="logo__image"
-        src={logoPath}
+        src={logoIcon}
         alt="logo"
         height={60}
-        width={60}
+        width={199}
         loading={loading}
         {...imageProps}
       />

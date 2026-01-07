@@ -15,6 +15,17 @@ interface ModalProps {
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen } = props;
 
+  React.useEffect(() => {
+    const html = document.documentElement;
+    if (isOpen) {
+      html.classList.add("is-lock");
+    } else {
+      html.classList.remove("is-lock");
+    }
+
+    return () => html.classList.remove("is-lock");
+  }, [isOpen]);
+
   return (
     <Portal>
       <div className={clx(className, "modal", { modal_opened: isOpen })}>

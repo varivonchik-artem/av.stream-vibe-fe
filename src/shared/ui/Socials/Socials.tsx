@@ -1,7 +1,6 @@
 import React from "react";
 import { AppLink } from "@shared/ui/AppLink";
 
-
 import clx from "classnames";
 import "./Socials.scss";
 

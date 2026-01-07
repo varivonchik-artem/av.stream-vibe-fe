@@ -93,6 +93,14 @@ svg * {
   transition-duration: var(--transition-duration-02);
 }
 
+a {
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+}
+
 :focus-visible {
   @include focus-visible;
 }

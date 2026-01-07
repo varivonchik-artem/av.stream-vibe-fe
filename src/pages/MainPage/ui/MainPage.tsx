@@ -1,5 +1,7 @@
+import { Hero } from "@widgets/page-sections/Hero";
+
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return <Hero />;
 };
 
 export default MainPage;

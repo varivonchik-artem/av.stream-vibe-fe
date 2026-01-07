@@ -15,6 +15,10 @@
   animation-timeline: scroll();
   animation-range: 0 100px;
 
+  @include breakpoint-down("tablet-landscape") {
+    z-index: 1000;
+  }
+
   @keyframes on-header-scroll {
     to {
       padding-block: 10px;
@@ -22,6 +26,10 @@
       border-color: var(--color-black-15);
       background-color: var(--color-black-08);
     }
+  }
+
+  &_fixed {
+    position: fixed;
   }
 
   &__inner {
@@ -80,10 +88,5 @@
     align-items: center;
 
     column-gap: 10px;
-  }
-
-  &__burger-button {
-    position: relative;
-    z-index: 104;
   }
 }
