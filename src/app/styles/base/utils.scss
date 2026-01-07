@@ -19,3 +19,9 @@
     display: none !important;
   }
 }
+
+.hidden-mobile-s-down {
+  @include breakpoint-down("mobile-s") {
+    display: none !important;
+  }
+}
