@@ -18,7 +18,7 @@
       --gridColumns: 2;
     }
 
-    @include breakpoint-down("mobile-s") {
+    @include breakpoint-down("mobile") {
       --gridColumns: 1;
     }
   }
