@@ -1,0 +1,25 @@
+.grid {
+  --gridColumns: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(var(--gridColumns), 1fr);
+
+  gap: fluid-to-laptop(30, 20);
+
+  &_columns-2 {
+    --gridColumns: 2;
+  }
+
+  &_columns-3 {
+    --gridColumns: 3;
+
+    @include breakpoint-down("tablet-landscape") {
+      --gridColumns: 2;
+    }
+
+    @include breakpoint-down("mobile-s") {
+      --gridColumns: 1;
+    }
+  }
+}
