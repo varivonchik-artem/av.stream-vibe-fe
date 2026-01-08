@@ -5,7 +5,13 @@ import { BuildOptions } from "../types/configurationTypes";
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDevelopment } = options;
 
-  const cssLoaders: webpack.RuleSetRule = {
+  const cssLoader: webpack.RuleSetRule = {
+    test: /\.css$/i,
+    exclude: /\.module\.css$/i,
+    use: [isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
+  };
+
+  const scssLoaders: webpack.RuleSetRule = {
     test: /\.s[ac]ss$/i,
     use: [
       isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -79,5 +85,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [typescriptLoaders, cssLoaders, svgLoader, imageLoaders];
+  return [typescriptLoaders, cssLoader, scssLoaders, svgLoader, imageLoaders];
 }
