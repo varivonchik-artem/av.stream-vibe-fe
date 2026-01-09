@@ -1,49 +1,39 @@
+import React from "react";
 import { Button } from "@shared/ui/Button";
-import classNames from "classnames";
-
+import clx from "classnames";
 import ArrowLeftIcon from "@/shared/assets/icons/arrow-left.svg";
 import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg";
 
 interface SliderNavigationProps {
   className?: string;
-  hasPagination?: boolean;
-  mode?: "" | "tile";
-  position?: "" | "abs-bottom";
-  isHiddenMobile?: boolean;
+
+  prevButtonRef?: React.Ref<HTMLButtonElement>;
+  nextButtonRef?: React.Ref<HTMLButtonElement>;
 }
 
-export const SliderNavigation = ({
-  className,
-  hasPagination = true,
-  mode = "",
-  position = "",
-  isHiddenMobile,
-}: SliderNavigationProps) => {
-  return (
-    <div
-      className={classNames(className, "slider-navigation", {
-        [`slider-navigation--${mode}`]: mode,
-        [`slider-navigation--${position}`]: position,
-        "hidden-mobile": isHiddenMobile,
-      })}
-    >
-      <Button
-        className="slider-navigation__arrow-button slider-navigation__arrow-button--previous"
-        mode="black-10"
-        icon={ArrowLeftIcon}
-        label="Previous slide"
-        isLabelVisible={false}
-      />
+export const SliderNavigation = React.forwardRef<HTMLDivElement, SliderNavigationProps>(
+  (props, ref) => {
+    const { className, prevButtonRef, nextButtonRef } = props;
 
-      {hasPagination && <div className="slider-navigation__pagination" />}
-
-      <Button
-        className="slider-navigation__arrow-button slider-navigation__arrow-button--next"
-        mode="black-10"
-        icon={ArrowRightIcon}
-        label="Next slide"
-        isLabelVisible={false}
-      />
-    </div>
-  );
-};
+    return (
+      <div className={clx(className, "slider-navigation")} ref={ref}>
+        <Button
+          className="slider-navigation__arrow-button slider-navigation__arrow-button_prev"
+          ref={prevButtonRef}
+          mode="black-10"
+          icon={ArrowLeftIcon}
+          label="Previous slide"
+          isLabelVisible={false}
+        />
+        <Button
+          className="slider-navigation__arrow-button slider-navigation__arrow-button_prev"
+          ref={nextButtonRef}
+          mode="black-10"
+          icon={ArrowRightIcon}
+          label="Previous slide"
+          isLabelVisible={false}
+        />
+      </div>
+    );
+  }
+);

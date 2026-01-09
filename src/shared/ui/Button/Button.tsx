@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Icon } from "@shared/ui/Icon";
 import clx from "classnames";
 import "./Button.scss";
@@ -17,33 +17,34 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: string;
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     className,
     type = "button",
     label,
-    isLabelVisible = "true",
+    isLabelVisible = true,
     icon,
     iconPosition = "before",
     mode = "",
     ...rest
   } = props;
 
-  const iconNode = icon ? <Icon className="button__icon" Svg={icon} /> : undefined;
+  const iconNode = icon ? <Icon className="button__icon" Svg={icon} /> : null;
 
   return (
-    <>
-      <button
-        className={clx(className, "button", { [`button_${mode}`]: mode })}
-        type={type}
-        {...rest}
-      >
-        {iconPosition === "before" && iconNode}
+    <button
+      ref={ref}
+      className={clx(className, "button", { [`button_${mode}`]: mode })}
+      type={type}
+      {...rest}
+    >
+      {iconPosition === "before" && iconNode}
 
-        {isLabelVisible && <span className="button__label">{label}</span>}
+      {isLabelVisible && <span className="button__label">{label}</span>}
 
-        {iconPosition === "after" && iconNode}
-      </button>
-    </>
+      {iconPosition === "after" && iconNode}
+    </button>
   );
-};
+});
+
+Button.displayName = "Button";
