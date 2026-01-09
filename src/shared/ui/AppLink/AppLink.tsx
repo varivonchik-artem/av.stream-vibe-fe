@@ -8,6 +8,8 @@ import { Link, LinkProps } from "react-router-dom";
 import "./AppLink.scss";
 
 interface AppLinkProps extends LinkProps {
+  children?: React.ReactNode;
+
   className?: string;
 
   label?: string;
@@ -21,6 +23,7 @@ interface AppLinkProps extends LinkProps {
 
 export const AppLink = (props: AppLinkProps) => {
   const {
+    children,
     className,
     to,
     label,
@@ -39,6 +42,7 @@ export const AppLink = (props: AppLinkProps) => {
         {iconPosition === "before" && iconNode}
 
         {isLabelVisible && <span className="link__label">{label}</span>}
+        {children}
 
         {iconPosition === "after" && iconNode}
       </Link>

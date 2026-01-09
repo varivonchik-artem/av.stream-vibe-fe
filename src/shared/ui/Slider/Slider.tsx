@@ -1,18 +1,20 @@
 import React from "react";
 import "swiper/css";
 import "./Slider.scss";
-import { SliderNavigation } from "@shared/ui/Slider/components/SliderNavigation";
 import clx from "classnames";
 import type { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface SliderProps {
   className?: string;
-  children?: React.ReactNode;
+  children?: React.ReactNode[];
 
   slidesPerView?: number;
   slidesPerGroup?: number;
+
+  prevButtonRef?: React.RefObject<HTMLButtonElement>;
+  nextButtonRef?: React.RefObject<HTMLButtonElement>;
 }
 
 export const Slider = ({
@@ -20,9 +22,15 @@ export const Slider = ({
   className,
   slidesPerView = 1,
   slidesPerGroup = 1,
+  prevButtonRef,
+  nextButtonRef,
 }: SliderProps) => {
-  const prevRef = React.useRef<HTMLButtonElement>(null);
-  const nextRef = React.useRef<HTMLButtonElement>(null);
+  const internalPrevRef = React.useRef<HTMLButtonElement>(null);
+  const internalNextRef = React.useRef<HTMLButtonElement>(null);
+
+  const prevRef = prevButtonRef || internalPrevRef;
+  const nextRef = nextButtonRef || internalNextRef;
+
   const [swiperInstance, setSwiperInstance] = React.useState<SwiperType | null>(null);
 
   React.useEffect(() => {
@@ -42,7 +50,6 @@ export const Slider = ({
 
   return (
     <div className={clx(className, "slider")}>
-      <SliderNavigation prevButtonRef={prevRef} nextButtonRef={nextRef} />
       <Swiper
         modules={[Navigation]}
         onSwiper={setSwiperInstance}
@@ -50,7 +57,11 @@ export const Slider = ({
         slidesPerGroup={slidesPerGroup}
         spaceBetween={20}
       >
-        {children}
+        {children.map((slide, index) => (
+          <SwiperSlide className="slider__item" key={index}>
+            {slide}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

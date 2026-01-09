@@ -3,6 +3,7 @@ import { Button } from "@shared/ui/Button";
 import clx from "classnames";
 import ArrowLeftIcon from "@/shared/assets/icons/arrow-left.svg";
 import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg";
+import "./SliderNavigation.scss";
 
 interface SliderNavigationProps {
   className?: string;
@@ -26,7 +27,7 @@ export const SliderNavigation = React.forwardRef<HTMLDivElement, SliderNavigatio
           isLabelVisible={false}
         />
         <Button
-          className="slider-navigation__arrow-button slider-navigation__arrow-button_prev"
+          className="slider-navigation__arrow-button slider-navigation__arrow-button_next"
           ref={nextButtonRef}
           mode="black-10"
           icon={ArrowRightIcon}
