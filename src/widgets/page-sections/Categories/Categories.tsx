@@ -21,6 +21,12 @@ const categoryItems = [
   {
     title: "Horror",
   },
+  {
+    title: "Drama",
+  },
+  {
+    title: "Horror",
+  },
 ];
 
 export const Categories = () => {

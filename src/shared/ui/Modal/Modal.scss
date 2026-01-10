@@ -5,6 +5,8 @@
   opacity: 0;
   pointer-events: none;
 
+  transition-duration: var(--transition-duration-02);
+
   &_opened {
     pointer-events: auto;
     opacity: 1;

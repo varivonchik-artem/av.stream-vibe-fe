@@ -7,7 +7,6 @@ import clx from "classnames";
 import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg";
 import ImageText from "@/shared/assets/images/categories/comedy/3.jpg";
 
-
 interface CategoryCardProps {
   className?: string;
 
