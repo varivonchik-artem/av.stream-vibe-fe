@@ -1,5 +1,6 @@
 import "./Questions.scss";
-import { AccordionGroup } from "@shared/ui/AccordionGroup/AccordionGroup";
+import { Accordion } from "@shared/ui/Accordion";
+import { AccordionGroup } from "@shared/ui/AccordionGroup";
 import { AppLink } from "@shared/ui/AppLink";
 import { Section } from "@shared/ui/Section";
 
@@ -22,7 +23,19 @@ export const Questions = () => {
       description="Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions about StreamVibe."
       actions={<AppLink mode="black-10" label="Ask a Question" to="/support" />}
     >
-      <AccordionGroup columns={2}>{questionItems}</AccordionGroup>
+      <AccordionGroup columns={2}>
+        {questionItems.map((question, index) => (
+          <Accordion
+            title={question}
+            titleId={`question-${index}`}
+            name="questions"
+            isOpen={index === 0}
+            key={index}
+          >
+            <p>{question}</p>
+          </Accordion>
+        ))}
+      </AccordionGroup>
     </Section>
   );
 };
