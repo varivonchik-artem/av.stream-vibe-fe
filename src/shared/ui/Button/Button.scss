@@ -13,6 +13,16 @@
   color: var(--color-white);
   background-color: var(--color-red-45);
 
+  &_mode-transparent {
+    background-color: transparent;
+
+    &:has(.button__icon:only-child) {
+      .button__icon {
+        --iconSize: #{fluid-to-laptop(34, 24)};
+      }
+    }
+  }
+
   &:has(.button__icon:only-child) {
     @include square(fluid-to-laptop(56, 44));
 

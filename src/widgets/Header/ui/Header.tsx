@@ -3,7 +3,7 @@ import { Logo } from "@shared/ui/Logo";
 import clx from "classnames";
 import { NavLink } from "react-router-dom";
 import { navigationMenuItems } from "../items/navigationMenuItems";
-import { Button } from "@shared/ui/Button";
+import { Button, ButtonMode } from "@shared/ui/Button";
 import SearchIcon from "@/shared/assets/icons/search.svg";
 import NotificationsIcon from "@/shared/assets/icons/notification.svg";
 
@@ -33,12 +33,19 @@ export const Header = () => {
             </ul>
           </nav>
           <div className="header__actions">
-            <Button className="header__button-search" title="Search" aria-label="Search" icon={SearchIcon} />
+            <Button
+              className="header__button-search"
+              title="Search"
+              aria-label="Search"
+              icon={SearchIcon}
+              mode={ButtonMode.TRANSPARENT}
+            />
             <Button
               className="header__button-notifications"
               title="Notifications"
               aria-label="Notifications"
               icon={NotificationsIcon}
+              mode={ButtonMode.TRANSPARENT}
             />
           </div>
         </div>
