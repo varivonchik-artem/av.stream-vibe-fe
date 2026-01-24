@@ -13,14 +13,12 @@ interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement
 export const ExternalLink = (props: ExternalLinkProps) => {
   const { children, "aria-label": ariaLabel, className, href, ...rest } = props;
 
-  const hasTextualChildren = typeof children === "string" || typeof children === "number";
-  const computedAriaLabel = hasTextualChildren ? undefined : ariaLabel;
 
   return (
     <a
       className={clx(className, "external-link")}
       href={href}
-      aria-label={computedAriaLabel}
+      aria-label={ariaLabel}
       target="_blank"
       rel="noopener noreferrer"
       {...rest}

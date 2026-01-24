@@ -16,7 +16,62 @@
     align-items: center;
 
     column-gap: 16px;
+
+    > .header__menu {
+      padding: fluid-to-laptop(10, 8);
+
+      outline: var(--border-width-4) solid var(--color-black-12);
+
+      border-radius: var(--border-radius-12);
+
+      background-color: var(--color-black-06);
+
+
+      @include breakpoint-down("desktop") {
+        border-radius: var(--border-radius-10);
+      }
+
+      > .header__menu-list {
+        display: flex;
+        align-items: center;
+
+        column-gap: 6px;
+
+        > .header__menu-item {
+          > .header__menu-link {
+            padding: fluid-to-laptop(14, 12) fluid-to-laptop(24, 20);
+
+            color: var(--color-gray-75);
+
+            border-radius: var(--border-radius-8);
+
+            @include hover {
+              color: var(--color-white);
+              background-color: var(--color-red-60);
+            }
+
+            &_active {
+              font-weight: 500;
+
+              pointer-events: none;
+
+              color: var(--color-white);
+              background-color: var(--color-black-10);
+            }
+          }
+        }
+      }
+    }
+
+    > .header__actions {
+      display: flex;
+      align-items: center;
+
+      column-gap: 10px;
+    }
   }
+
+
 }
 
 .header {

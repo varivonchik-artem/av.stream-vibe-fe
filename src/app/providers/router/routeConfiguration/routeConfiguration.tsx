@@ -9,7 +9,7 @@ export const routeConfiguration: RouteObject[] = [
     element: (
       <>
         <Header />
-        <main className="content">
+        <main id="main-content" className="content">
           <Outlet />
         </main>
       </>

@@ -8,6 +8,43 @@
   padding-inline: var(--container-padding-x);
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+.skip-content {
+  position: relative;
+}
+
+.skip-content__link {
+  position: absolute;
+  top: -9999px;
+  left: 0px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--color-white);
+  padding: 8px 12px;
+  border: 2px solid rgb(0, 0, 0);
+
+  &:focus {
+    top: 10px; /* appear at top of page */
+    left: 10px;
+    z-index: 11;
+  }
+}
+
+
 .hidden-tablet-landscape-up {
   @include breakpoint-up("tablet-landscape") {
     display: none !important;

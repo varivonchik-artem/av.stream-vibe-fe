@@ -76,6 +76,12 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                       currentColor: true,
                     },
                   },
+                  {
+                    name: "removeAttrs",
+                    params: {
+                      attrs: "*:(stroke|fill):((?!^none$).)*",
+                    },
+                  },
                 ],
               },
             },

@@ -13,11 +13,10 @@ interface InternalLinkProps extends LinkProps {
 export const InternalLink: React.FC<InternalLinkProps> = React.memo((props: InternalLinkProps) => {
   const { children, "aria-label": ariaLabel, className, to, ...rest } = props;
 
-  const hasTextualChildren = typeof children === "string" || typeof children === "number";
-  const computedAriaLabel = hasTextualChildren ? undefined : ariaLabel;
+
 
   return (
-    <Link className={clx(className, "internal-link")} to={to} aria-label={computedAriaLabel} {...rest}>
+    <Link className={clx(className, "internal-link")} to={to} aria-label={ariaLabel} {...rest}>
       {children}
     </Link>
   );
