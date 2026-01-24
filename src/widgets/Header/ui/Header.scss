@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+  top: 0;
+
+  z-index: var(--z-index-header);
+
+  padding-block: fluid(22, 14);
+
+  border-bottom: var(--border-width-1) solid transparent;
+
+  background-color: var(--color-black-08);
+
+  > .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    column-gap: 16px;
+  }
+}
+
+.header {
+  animation-name: on-header-scroll;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: 0 100px;
+
+  @keyframes on-header-scroll {
+    to {
+      border-color: var(--color-black-15);
+    }
+  }
+}

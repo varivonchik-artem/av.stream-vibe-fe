@@ -1,11 +1,25 @@
 import { ErrorBoundaryFallback } from "@app/providers/ErrorBoundary";
-import { RouteObject } from "react-router-dom";
+import { getRouteMain } from "@shared/routes";
+import { Header } from "@widgets/Header";
+import { RouteObject, Outlet } from "react-router-dom";
 import { MainPage } from "@/pages/MainPage";
 
 export const routeConfiguration: RouteObject[] = [
   {
-    path: "/",
-    element: <MainPage />,
+    element: (
+      <>
+        <Header />
+        <main className="content">
+          <Outlet />
+        </main>
+      </>
+    ),
     errorElement: <ErrorBoundaryFallback />,
+    children: [
+      {
+        path: getRouteMain(),
+        element: <MainPage />,
+      },
+    ],
   },
 ];
