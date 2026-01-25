@@ -13,7 +13,6 @@ interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement
 export const ExternalLink = (props: ExternalLinkProps) => {
   const { children, "aria-label": ariaLabel, className, href, ...rest } = props;
 
-
   return (
     <a
       className={clx(className, "external-link")}

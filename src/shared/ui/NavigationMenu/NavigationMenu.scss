@@ -1,0 +1,77 @@
+.navigation-menu {
+  max-width: 700px;
+
+  padding: fluid-to-laptop(10, 8);
+
+  outline: var(--border-width-4) solid var(--color-black-12);
+
+  border-radius: var(--border-radius-12);
+
+  background-color: var(--color-black-06);
+
+  @include breakpoint-down("desktop") {
+    border-radius: var(--border-radius-10);
+  }
+
+  @include breakpoint-down("tablet-landscape") {
+    @include flex-center;
+
+    position: fixed;
+    top: fluid(90, 80);
+    left: 0;
+    right: 0;
+
+    max-width: 100%;
+
+    padding-block: fluid(75, 40);
+
+    height: calc(100vh - #{fluid(90, 80)});
+
+    border-radius: unset;
+    outline: transparent;
+
+    overflow-y: auto;
+  }
+
+  > .navigation-menu__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-block: auto;
+
+    &--row {
+      flex-direction: row;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+
+    > .navigation-menu__item {
+      > .navigation-menu__link {
+        padding: fluid-to-laptop(14, 12) fluid-to-laptop(24, 20);
+
+        color: var(--color-gray-75);
+
+        border-radius: var(--border-radius-8);
+
+        @include hover {
+          color: var(--color-white);
+          background-color: var(--color-red-60);
+        }
+
+        &_active {
+          font-weight: 500;
+
+          pointer-events: none;
+
+          color: var(--color-white);
+          background-color: var(--color-black-10);
+        }
+      }
+    }
+  }
+}

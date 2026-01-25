@@ -1,0 +1,42 @@
+.modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition-property: opacity;
+  transition-duration: var(--transition-duration-02);
+  transition-timing-function: ease-in-out;
+
+  &_opened {
+    pointer-events: auto;
+    opacity: 1;
+
+    z-index: 11;
+
+    @include breakpoint-up("tablet-landscape") {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--color-black-30);
+  }
+
+  &__close-button-wrapper {
+    //display: flex;
+    //justify-content: end;
+    //padding-block: fluid(22, 14);
+    padding-inline: var(--container-padding-x);
+  }
+
+  &__body {
+  }
+}

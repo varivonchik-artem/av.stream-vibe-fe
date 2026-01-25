@@ -1,4 +1,3 @@
-import { Icon } from "@shared/ui/Icon";
 import clx from "classnames";
 import { Link } from "react-router-dom";
 import LogoImage from "@/shared/assets/icons/logo.svg?url";

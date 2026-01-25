@@ -1,8 +1,10 @@
 @use "../helpers/mixins" as *;
 
-html {
+html,
+body {
   &.is-lock {
     overflow: hidden;
+    scrollbar-width: none;
   }
 }
 
@@ -104,7 +106,6 @@ a {
 :focus-visible {
   @include focus-visible;
 }
-
 
 @media (forced-colors: active) {
   button,
