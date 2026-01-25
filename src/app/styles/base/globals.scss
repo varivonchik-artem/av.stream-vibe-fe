@@ -1,11 +1,24 @@
 @use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
 
 html,
 body {
   &.is-lock {
     overflow: hidden;
     scrollbar-width: none;
+
+    @include breakpoint-up("tablet-landscape") {
+      overflow: auto;
+      scrollbar-width: initial;
+    }
   }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
 }
 
 body {
@@ -130,4 +143,9 @@ a {
     background-color: Window !important;
     color: WindowText !important;
   }
+}
+
+::selection {
+  background-color: Window;
+  color: WindowText;
 }

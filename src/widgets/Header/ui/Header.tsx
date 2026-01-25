@@ -42,7 +42,6 @@ export const Header = () => {
               aria-label="Notifications"
               icon={NotificationsIcon}
               mode={ButtonMode.TRANSPARENT}
-              onClick={toggleModal}
             />
             <BurgerButton
               className={clx("header__burger-button hidden-tablet-landscape-up", {

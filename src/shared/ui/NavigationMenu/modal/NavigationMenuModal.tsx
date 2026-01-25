@@ -12,7 +12,7 @@ export const NavigationMenuModal = (props: NavigationMenuModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <NavigationMenu items={navigationMenuItems} listDirection="column" />
+      <NavigationMenu items={navigationMenuItems} listDirection="column" ariaLabel="Main Navigation Mobile Menu" />
     </Modal>
   );
 };
