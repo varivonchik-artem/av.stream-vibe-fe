@@ -67,6 +67,7 @@ export const Slider = ({
         onSwiper={setSwiperInstance}
         slidesPerView={slidesPerView}
         slidesPerGroup={slidesPerGroup}
+        spaceBetween={20}
       >
         {children.map((slide, index) => (
           <SwiperSlide className="slider__item" key={index}>

@@ -2,7 +2,32 @@ import React from "react";
 
 import { Section } from "@shared/ui/Section";
 import { SliderNavigation } from "@shared/ui/Slider/components/SliderNavigation";
+import { CategoryCard } from "@/shared/ui/CategoryCard/CategoryCard";
 import { Slider } from "@/shared/ui/Slider/Slider";
+
+const categoryItems = [
+  {
+    title: "Action",
+  },
+  {
+    title: "Adventure",
+  },
+  {
+    title: "Comedy",
+  },
+  {
+    title: "Drama",
+  },
+  {
+    title: "Horror",
+  },
+  {
+    title: "Drama",
+  },
+  {
+    title: "Horror",
+  },
+];
 
 export const Categories = () => {
   const prevRef = React.useRef<HTMLButtonElement>(null);
@@ -17,16 +42,9 @@ export const Categories = () => {
       isActionHiddenOnMobile
     >
       <Slider slidesPerView={5} slidesPerGroup={5} prevButtonRef={prevRef} nextButtonRef={nextRef}>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
+        {categoryItems.map(({ title }) => (
+          <CategoryCard title={title} />
+        ))}
       </Slider>
     </Section>
   );
