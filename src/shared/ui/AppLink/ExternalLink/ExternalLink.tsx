@@ -5,10 +5,11 @@ import "./ExternalLink.scss";
 
 export enum ExternalLinkButtonMode {
   BLACK_10 = "mode-black-10",
+  RED_45 = "mode-red-45",
 }
 
 interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  children?: React.ReactNode;
+  children?: React.ReactElement;
   href: string;
 
   "aria-label"?: string;
@@ -17,6 +18,9 @@ interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement
 
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconPosition?: "before" | "after";
+
+  buttonText?: string;
+  isButtonTextVisible?: boolean;
 
   buttonMode?: ExternalLinkButtonMode;
 }
@@ -29,6 +33,8 @@ export const ExternalLink = (props: ExternalLinkProps) => {
     href,
     icon,
     iconPosition = "before",
+    buttonText,
+    isButtonTextVisible = buttonText ? true : false,
     buttonMode,
     ...rest
   } = props;
@@ -49,6 +55,7 @@ export const ExternalLink = (props: ExternalLinkProps) => {
       {...rest}
     >
       {iconPosition === "before" && iconNode}
+      {isButtonTextVisible && <span className="button__label">{buttonText}</span>}
       {children}
       {iconPosition === "after" && iconNode}
     </a>

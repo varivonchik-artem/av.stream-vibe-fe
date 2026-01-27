@@ -5,13 +5,12 @@
     cursor: pointer;
     user-select: none;
 
+    column-gap: 5px;
+
     border: none;
     border-radius: var(--border-radius-8);
 
     padding: fluid-to-laptop(18, 14) fluid-to-laptop(24, 20);
-
-    color: var(--color-white);
-    background-color: var(--color-red-45);
 
     &-mode-transparent {
       background-color: transparent;
@@ -26,6 +25,16 @@
     &-mode-black-10 {
       border: var(--border);
       background-color: var(--color-black-10);
+    }
+
+    &-mode-black-10 {
+      border: var(--border);
+      background-color: var(--color-black-10);
+    }
+
+    &-mode-red-45 {
+      color: var(--color-white);
+      background-color: var(--color-red-45);
     }
 
     &:has(.external-link__icon:only-child) {

@@ -7,8 +7,10 @@ import { Logo } from "@shared/ui/Logo";
 import { NavigationMenu, NavigationMenuModal } from "@shared/ui/NavigationMenu";
 import { navigationMenuItems } from "@widgets/Header/items/navigationMenuItems";
 import clx from "classnames";
+import { useLocation } from "react-router-dom";
 import NotificationsIcon from "@/shared/assets/icons/notification.svg";
 import SearchIcon from "@/shared/assets/icons/search.svg";
+import { getRouteMain } from "@/shared/routes";
 
 export const Header = () => {
   const [isOpenModal, setIsOpenModal] = React.useState(false);
@@ -17,9 +19,13 @@ export const Header = () => {
     setIsOpenModal((prev) => !prev);
   };
 
+  const location = useLocation();
+
+  const isMainPage = location.pathname === getRouteMain();
+
   return (
     <>
-      <header className="header">
+      <header className={clx("header", { ["header_fixed"]: isMainPage })}>
         <div className="skip-content hidden-tablet-landscape-down">
           <a className="skip-content__link" href="#main-content" aria-label="Skip to content">
             Skip to content
