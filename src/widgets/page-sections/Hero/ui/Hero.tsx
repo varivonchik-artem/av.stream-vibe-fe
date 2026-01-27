@@ -31,7 +31,7 @@ export const Hero = () => {
             href="/"
             icon={PlayIcon}
             buttonMode={ExternalLinkButtonMode.RED_45}
-            buttonText="Start Watching Now"
+            linkText="Start Watching Now"
           />
         </div>
       </div>

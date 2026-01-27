@@ -19,8 +19,8 @@ interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconPosition?: "before" | "after";
 
-  buttonText?: string;
-  isButtonTextVisible?: boolean;
+  linkText?: string;
+  isLinkTextVisible?: boolean;
 
   buttonMode?: ExternalLinkButtonMode;
 }
@@ -33,8 +33,8 @@ export const ExternalLink = (props: ExternalLinkProps) => {
     href,
     icon,
     iconPosition = "before",
-    buttonText,
-    isButtonTextVisible = buttonText ? true : false,
+    linkText,
+    isLinkTextVisible = linkText ? true : false,
     buttonMode,
     ...rest
   } = props;
@@ -55,7 +55,7 @@ export const ExternalLink = (props: ExternalLinkProps) => {
       {...rest}
     >
       {iconPosition === "before" && iconNode}
-      {isButtonTextVisible && <span className="button__label">{buttonText}</span>}
+      {isLinkTextVisible && <span className="external-link__label">{linkText}</span>}
       {children}
       {iconPosition === "after" && iconNode}
     </a>

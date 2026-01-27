@@ -15,6 +15,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconPosition?: "before" | "after";
 
+  buttonText?: string;
+  isButtonTextVisible?: boolean;
+
   mode?: ButtonMode;
 }
 
@@ -24,6 +27,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
     className,
     icon,
     iconPosition = "before",
+    buttonText,
+    isButtonTextVisible = buttonText ? true : false,
     "aria-label": buttonAriaLabel,
     type = "button",
     mode,
@@ -39,6 +44,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
   return (
     <button className={buttonClasses} type={type} ref={ref} aria-label={buttonAriaLabel} {...rest}>
       {iconPosition === "before" && iconNode}
+      {isButtonTextVisible && <span className="button__label">{buttonText}</span>}
       {children}
       {iconPosition === "after" && iconNode}
     </button>
