@@ -73,8 +73,6 @@
   }
 
   &__icon {
-    &.icon {
-      --iconSize: #{fluid(28, 24)};
-    }
+    --iconSize: #{fluid(28, 24)};
   }
 }

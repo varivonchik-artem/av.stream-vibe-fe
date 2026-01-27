@@ -153,3 +153,9 @@ a {
   background-color: Window;
   color: WindowText;
 }
+
+.header,
+.content > *:not(:last-child),
+.footer {
+  display: none !important;
+}
