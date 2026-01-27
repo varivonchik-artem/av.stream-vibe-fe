@@ -55,3 +55,9 @@
     display: none !important;
   }
 }
+
+.hidden-tablet-down {
+  @include breakpoint-down("tablet") {
+    display: none !important;
+  }
+}

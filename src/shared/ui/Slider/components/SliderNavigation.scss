@@ -1,0 +1,16 @@
+.slider-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  column-gap: 20px;
+
+  &_abs-bottom {
+    position: absolute;
+    inset-inline: fluid-to-laptop(50, 40);
+
+    bottom: fluid-to-laptop(20, 16);
+
+    z-index: 1;
+  }
+}

@@ -31,13 +31,12 @@ export const SliderNavigation = React.forwardRef<HTMLDivElement, SliderNavigatio
         className="slider-navigation__arrow-button slider-navigation__arrow-button_prev"
         ref={prevButtonRef}
         icon={ArrowLeftIcon}
-        buttonText="Previous slide"
       />
       <Button
         className="slider-navigation__arrow-button slider-navigation__arrow-button_next"
         ref={nextButtonRef}
         icon={ArrowRightIcon}
-        buttonText="Previous slide"
+        iconPosition="after"
       />
     </div>
   );
