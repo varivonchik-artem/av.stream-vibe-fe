@@ -2,6 +2,7 @@ import React from "react";
 import clx from "classnames";
 import { Link, LinkProps } from "react-router-dom";
 import { Icon } from "../../Icon";
+import "./InternalLink.scss";
 
 export enum InternalLinkButtonMode {
   BLACK_10 = "mode-black-10",

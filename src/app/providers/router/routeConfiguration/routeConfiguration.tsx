@@ -4,6 +4,7 @@ import { Footer } from "@widgets/Footer";
 import { Header } from "@widgets/Header";
 import { RouteObject, Outlet } from "react-router-dom";
 import { MainPage } from "@/pages/MainPage";
+import { Banner } from "@/widgets/page-sections/Banner";
 
 export const routeConfiguration: RouteObject[] = [
   {
@@ -13,6 +14,7 @@ export const routeConfiguration: RouteObject[] = [
         <main id="main-content" className="content">
           <Outlet />
         </main>
+        <Banner />
         <Footer />
       </>
     ),
