@@ -153,9 +153,8 @@ a {
   background-color: Window;
   color: WindowText;
 }
+.content {
+  padding-top: fluid(50, 40);
 
-.header,
-.content > *:not(:last-child),
-.footer {
-  display: none !important;
+  padding-bottom: var(--section-padding-y);
 }
